@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 
 export default async function Home() {
   async function addQuestion(form: FormData) {
@@ -44,7 +45,12 @@ export default async function Home() {
               <div className="card-body">
                 <h2 className="card-title">{question.body}</h2>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">詳細を見る</button>
+                  <Link
+                    href={`/question/${question.id}`}
+                    className="btn btn-primary"
+                  >
+                    詳細を見る
+                  </Link>
                 </div>
               </div>
             </div>
