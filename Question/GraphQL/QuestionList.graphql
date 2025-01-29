@@ -1,0 +1,31 @@
+query QuestionList {
+  questions {
+    id
+    body
+  }
+}
+
+mutation AddQuestion($body: String!) {
+  addQuestion(body: $body) {
+    id
+    body
+  }
+}
+
+query QuestionDetail($id: ID!) {
+  question(id: $id) {
+    id
+    body
+    answers {
+      id
+      body
+    }
+  }
+}
+
+mutation AddAnswer($questionId: ID!, $body: String!) {
+  addAnswer(questionId: $questionId, body: $body) {
+    id
+    body
+  }
+}
